@@ -1,0 +1,13 @@
+<script context="module">
+	import { browser, dev } from '$app/env';
+
+	export const hydrate = dev;
+	export const router = browser;
+	export const prerender = true;
+</script>
+
+<svelte:head>
+	<title>Timo Prüße | Fullstack Dev</title>
+</svelte:head>
+
+<section class="bg-gray-200 p-4">TODO</section>
