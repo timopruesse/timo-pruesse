@@ -28,7 +28,7 @@
 			>
 		</div>
 		<div class="mt-8 md:mt-0 md:order-1">
-			<p class="text-center text-base text-gray-600">
+			<p class="text-center text-base text-gray-400">
 				&copy; {new Date().getFullYear()} Timo Prüße, Inc. All rights reserved.
 			</p>
 		</div>
