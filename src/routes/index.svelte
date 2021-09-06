@@ -1,5 +1,6 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
+	import TechGrid from '$lib/technologies/TechGrid.svelte';
 
 	export const hydrate = dev;
 	export const router = browser;
@@ -10,4 +11,6 @@
 	<title>Timo Prüße | Fullstack Dev</title>
 </svelte:head>
 
-<section class="bg-gray-200 p-4">TODO</section>
+<section class="bg-gray-200 p-4">
+	<TechGrid />
+</section>
