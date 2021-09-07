@@ -11,6 +11,6 @@
 	<title>Timo Prüße | Fullstack Dev</title>
 </svelte:head>
 
-<section class="bg-gray-200 p-4">
+<section class="bg-gray-300">
 	<TechGrid />
 </section>
