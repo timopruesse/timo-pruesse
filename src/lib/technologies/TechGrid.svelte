@@ -54,7 +54,7 @@
 <div class="bg-gray-900 text-gray-100 p-4">
 	<h2 class="text-2xl leading-6 font-medium">Technologies I use</h2>
 </div>
-<div class="px-4 py-6">
+<div class="p-6">
 	{#each Object.entries(technologyGroups) as [groupName, technologies]}
 		<TechGroup {groupName} {technologies} />
 	{/each}
