@@ -7,7 +7,7 @@
 
 <Header />
 
-<main>
+<main class="bg-gray-200 text-gray-900">
 	<slot />
 </main>
 

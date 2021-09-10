@@ -37,7 +37,8 @@
 				name: 'React Testing Library',
 				url: 'https://testing-library.com/docs/react-testing-library/intro/'
 			},
-			{ name: 'PHPUnit', url: 'https://phpunit.de/' }
+			{ name: 'PHPUnit', url: 'https://phpunit.de/' },
+			{ name: 'Playwright', url: 'https://playwright.dev/' }
 		],
 		UI: [
 			{ name: 'Storybook', url: 'https://storybook.js.org/' },
@@ -51,9 +52,7 @@
 	};
 </script>
 
-<div class="bg-gray-900 text-gray-100 p-4">
-	<h2 class="text-2xl leading-6 font-medium">Technologies I use</h2>
-</div>
+<h2 class="text-3xl leading-6 font-semibold px-4 pt-8 pb-4">Technologies I currently use</h2>
 <div class="p-6">
 	{#each Object.entries(technologyGroups) as [groupName, technologies]}
 		<TechGroup {groupName} {technologies} />
