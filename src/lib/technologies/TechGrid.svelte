@@ -45,7 +45,8 @@
 		],
 		'Databases/Data stores': [
 			{ name: 'MySQL', url: 'https://www.mysql.com/' },
-			{ name: 'Redis', url: 'https://redis.io/' }
+			{ name: 'Redis', url: 'https://redis.io/' },
+			{ name: 'MongoDB', url: 'https://www.mongodb.com/' }
 		]
 	};
 </script>
