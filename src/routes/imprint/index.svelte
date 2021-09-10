@@ -1,23 +1,37 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
+	import { headerStore } from '$lib/header/store';
+	import Address from '$lib/address/Address.svelte';
 
 	export const hydrate = dev;
 	export const router = browser;
 	export const prerender = true;
+
+	/**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
+	export async function load() {
+		headerStore.set({
+			title: 'Imprint'
+		});
+
+		return {};
+	}
 </script>
 
-<script lang="ts">
-	import Address from '$lib/address/Address.svelte';
-</script>
+<svelte:head>
+	<title>Timo Prüße | Imprint</title>
+</svelte:head>
 
 <div class="px-6 pt-4 pb-8">
-	<a class="block mb-4 text-lg font-semibold" href="/"
-		><span class="text-2xl">←</span> Go back home</a
-	>
+	<div class="mb-4">
+		<a class="text-lg font-semibold hover:text-gray-600" href="/"
+			><span class="text-2xl">←</span> <span class="hover:underline">Go back home</span>
+		</a>
+	</div>
 
 	<hr class="mb-2" />
 
-	<h1 class="text-4xl font-semibold mb-2">Impressum</h1>
 	<p class="italic">Angaben gemäß § 5 TMG</p>
 
 	<Address />
@@ -30,8 +44,9 @@
 	<ul class="mb-2">
 		<li class="font-semibold">Kontakt:</li>
 		<li>
-			E-Mail: <a href="mailto:hi@timo-pruesse.de" class="text-gray-600 underline"
-				>hi@timo-pruesse.de</a
+			E-Mail: <a
+				href="mailto:hi@timo-pruesse.de"
+				class="text-gray-600 underline hover:text-gray-900">hi@timo-pruesse.de</a
 			>
 		</li>
 	</ul>
