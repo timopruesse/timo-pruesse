@@ -29,6 +29,8 @@
 			{ name: 'Laravel', url: 'https://laravel.com/' },
 			{ name: 'Svelte/SvelteKit', url: 'https://svelte.dev/' },
 			{ name: 'Vue', url: 'https://vuejs.org/' },
+			{ name: 'Next.js', url: 'https://nextjs.org/' },
+			{ name: 'NuxtJS', url: 'https://nuxtjs.org/' },
 			{ name: 'Flutter', url: 'https://flutter.dev/' }
 		],
 		Testing: [
