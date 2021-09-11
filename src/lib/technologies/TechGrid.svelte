@@ -52,8 +52,8 @@
 	};
 </script>
 
-<h2 class="text-3xl leading-6 font-semibold px-4 pt-8 pb-4">Technologies I currently use</h2>
-<div class="p-6">
+<h2 class="text-2xl sm:text-3xl leading-6 font-semibold pt-8 pb-4">Technologies I currently use</h2>
+<div class="py-6">
 	{#each Object.entries(technologyGroups) as [groupName, technologies]}
 		<TechGroup {groupName} {technologies} />
 	{/each}
