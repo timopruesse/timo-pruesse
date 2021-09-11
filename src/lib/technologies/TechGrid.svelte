@@ -22,6 +22,10 @@
 			{
 				name: 'C#',
 				url: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
+			},
+			{
+				name: 'Go',
+				url: 'https://golang.org/'
 			}
 		],
 		Frameworks: [
