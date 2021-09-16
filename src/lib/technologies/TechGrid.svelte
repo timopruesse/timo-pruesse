@@ -4,13 +4,6 @@
 	import TechGroup from './TechGroup.svelte';
 
 	const technologyGroups: Record<string, Technology[]> = {
-		Basics: [
-			{ name: 'HTML5', url: 'https://html.spec.whatwg.org/' },
-			{
-				name: 'CSS',
-				url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics'
-			}
-		],
 		Languages: [
 			{
 				name: 'JavaScript',
@@ -47,8 +40,9 @@
 			{ name: 'Playwright', url: 'https://playwright.dev/' }
 		],
 		UI: [
-			{ name: 'Storybook', url: 'https://storybook.js.org/' },
-			{ name: 'Material UI', url: 'https://material-ui.com/' }
+			{ name: 'Tailwind CSS', url: 'https://tailwindcss.com/' },
+			{ name: 'Material UI', url: 'https://material-ui.com/' },
+			{ name: 'Storybook', url: 'https://storybook.js.org/' }
 		],
 		'Databases/Data stores': [
 			{ name: 'MySQL', url: 'https://www.mysql.com/' },

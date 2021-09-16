@@ -9,8 +9,6 @@
 	});
 </script>
 
-<!-- TODO: Add transition for height change (different if there's no subtitle) -->
-
 <header>
 	<div class="relative bg-black">
 		<div class="absolute inset-0">
