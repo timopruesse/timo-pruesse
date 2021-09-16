@@ -26,7 +26,7 @@
 <div class="px-6 pt-4 pb-8">
 	<div class="mb-4">
 		<a class="text-lg font-semibold hover:text-gray-600" href="/"
-			><span class="text-2xl">←</span> <span class="hover:underline">Go back home</span>
+			><span class="text-2xl">←</span> <span class="hover:underline">Home</span>
 		</a>
 	</div>
 
