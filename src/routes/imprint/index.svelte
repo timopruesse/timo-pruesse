@@ -3,8 +3,8 @@
 	import { headerStore } from '$lib/header/store';
 	import Address from '$lib/address/Address.svelte';
 
-	export const hydrate = dev;
 	export const router = browser;
+	export const hydrate = dev;
 	export const prerender = true;
 
 	/**

@@ -13,6 +13,15 @@
 	<div class="relative bg-black">
 		<div class="absolute inset-0">
 			<picture>
+				<source
+					media="(max-width: 540px) and (orientation:portrait)"
+					srcset="header_bg_mobile.webp"
+					type="image/webp"
+				/>
+				<source
+					media="(max-width: 540px) and (orientation:portrait)"
+					srcset="header_bg_mobile.jpg"
+				/>
 				<source srcset="header_bg.webp" type="image/webp" />
 				<img
 					class="w-full h-full object-cover"

@@ -3,8 +3,8 @@
 	import { headerStore } from '$lib/header/store';
 	import TechGrid from '$lib/technologies/TechGrid.svelte';
 
-	export const hydrate = dev;
 	export const router = browser;
+	export const hydrate = true;
 	export const prerender = true;
 
 	/**

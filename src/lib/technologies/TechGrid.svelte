@@ -1,59 +1,30 @@
 <script lang="ts">
-	import type { Technology } from 'src/types/technologies';
-
+	import FrequencyCard from './FrequencyCard.svelte';
 	import TechGroup from './TechGroup.svelte';
+	import { technologyGroups } from './technologyGroups';
+	import { filterStore } from './store';
+	import { Frequency } from './frequency';
 
-	const technologyGroups: Record<string, Technology[]> = {
-		Languages: [
-			{
-				name: 'JavaScript',
-				url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-			},
-			{ name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
-			{ name: 'PHP', url: 'https://www.php.net/' },
-			{ name: 'Dart', url: 'https://dart.dev/' },
-			{
-				name: 'C#',
-				url: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
-			},
-			{
-				name: 'Go',
-				url: 'https://golang.org/'
-			}
-		],
-		Frameworks: [
-			{ name: 'React', url: 'https://reactjs.org/' },
-			{ name: 'Laravel', url: 'https://laravel.com/' },
-			{ name: 'Svelte', url: 'https://svelte.dev/' },
-			{ name: 'SvelteKit', url: 'https://kit.svelte.dev/' },
-			{ name: 'Vue', url: 'https://vuejs.org/' },
-			{ name: 'Next.js', url: 'https://nextjs.org/' },
-			{ name: 'NuxtJS', url: 'https://nuxtjs.org/' },
-			{ name: 'Flutter', url: 'https://flutter.dev/' }
-		],
-		Testing: [
-			{ name: 'Jest', url: 'https://jestjs.io/' },
-			{
-				name: 'React Testing Library',
-				url: 'https://testing-library.com/docs/react-testing-library/intro/'
-			},
-			{ name: 'PHPUnit', url: 'https://phpunit.de/' },
-			{ name: 'Playwright', url: 'https://playwright.dev/' }
-		],
-		UI: [
-			{ name: 'Tailwind CSS', url: 'https://tailwindcss.com/' },
-			{ name: 'Material UI', url: 'https://material-ui.com/' },
-			{ name: 'Storybook', url: 'https://storybook.js.org/' }
-		],
-		'Databases/Data stores': [
-			{ name: 'MySQL', url: 'https://www.mysql.com/' },
-			{ name: 'Redis', url: 'https://redis.io/' },
-			{ name: 'MongoDB', url: 'https://www.mongodb.com/' }
-		]
-	};
+	function onFilter(frequency: Frequency) {
+		filterStore.update((current) => (frequency !== current ? frequency : null));
+	}
 </script>
 
-<h2 class="text-2xl sm:text-3xl leading-6 font-semibold pt-8 pb-4">Technologies I currently use</h2>
+<h2 class="text-2xl sm:text-3xl leading-6 font-semibold py-4 text-center sm:text-left">
+	Technologies I use
+</h2>
+<div class="flex flex-col items-center space-y-3 sm:flex-row sm:space-x-5 sm:space-y-0">
+	<FrequencyCard frequency={Frequency.Everyday} on:click={() => onFilter(Frequency.Everyday)}
+		>Everyday</FrequencyCard
+	>
+	<FrequencyCard frequency={Frequency.Frequently} on:click={() => onFilter(Frequency.Frequently)}
+		>Frequently</FrequencyCard
+	>
+	<FrequencyCard
+		frequency={Frequency.LessFrequently}
+		on:click={() => onFilter(Frequency.LessFrequently)}>Less frequently</FrequencyCard
+	>
+</div>
 <div class="py-6">
 	{#each Object.entries(technologyGroups) as [groupName, technologies]}
 		<TechGroup {groupName} {technologies} />
