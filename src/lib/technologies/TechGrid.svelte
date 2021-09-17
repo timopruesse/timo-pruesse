@@ -13,7 +13,9 @@
 <h2 class="text-2xl sm:text-3xl leading-6 font-semibold py-4 text-center sm:text-left">
 	Technologies I use
 </h2>
-<div class="flex flex-col items-center space-y-3 sm:flex-row sm:space-x-5 sm:space-y-0">
+<div
+	class="flex flex-col items-center space-y-3 sm:flex-row sm:space-x-5 sm:space-y-0 px-4 sm:px-0"
+>
 	<FrequencyCard frequency={Frequency.Everyday} on:click={() => onFilter(Frequency.Everyday)}
 		>Everyday</FrequencyCard
 	>
