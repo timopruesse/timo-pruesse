@@ -1,5 +1,5 @@
 <script context="module">
-	import { browser, dev } from '$app/env';
+	import { browser } from '$app/env';
 	import { headerStore } from '$lib/header/store';
 	import TechGrid from '$lib/technologies/TechGrid.svelte';
 
