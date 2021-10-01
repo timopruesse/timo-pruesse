@@ -23,7 +23,7 @@
 	href={technology.url}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="group flex items-center px-2 py-2 shadow-lg hover:shadow-2xl hover:z-50 transition duration-400 ease-in-out hover:scale-105 hover:transform sm:hover:-skew-y-1 bg-white text-gray-900 rounded-lg overflow-hidden hover:bg-gray-700 hover:text-white cursor-pointer"
+	class="group flex items-center px-2 py-2 shadow-lg hover:shadow-2xl hover:z-50 transition duration-400 ease-in-out hover:scale-105 hover:transform-gpu sm:hover:-skew-y-1 bg-white text-gray-900 rounded-lg overflow-hidden hover:bg-gray-700 hover:text-white cursor-pointer"
 >
 	<hr class={`${colors} border-0 w-2 h-full mr-2`} />
 	<div class="text-xl sm:text-2xl font-medium">
