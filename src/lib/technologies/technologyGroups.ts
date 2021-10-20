@@ -55,7 +55,8 @@ export const technologyGroups: Record<string, Technology[]> = {
 	'Databases/Data stores': [
 		{ name: 'MySQL', url: 'https://www.mysql.com/', frequency: Frequency.Everyday },
 		{ name: 'Redis', url: 'https://redis.io/', frequency: Frequency.Frequently },
-		{ name: 'MongoDB', url: 'https://www.mongodb.com/', frequency: Frequency.LessFrequently }
+		{ name: 'MongoDB', url: 'https://www.mongodb.com/', frequency: Frequency.LessFrequently },
+		{ name: 'SQLite', url: 'https://www.sqlite.org/', frequency: Frequency.Frequently }
 	],
 	Cloud: [
 		{ name: 'DigitalOcean', url: 'https://www.digitalocean.com/', frequency: Frequency.Everyday },
