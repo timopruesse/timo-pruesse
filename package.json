@@ -1,6 +1,9 @@
 {
 	"name": "timo-pruesse",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"engines": {
+		"node": ">=16.0.0"
+	},
 	"scripts": {
 		"dev:only": "svelte-kit dev",
 		"build:only": "svelte-kit build",
