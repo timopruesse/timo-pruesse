@@ -5,10 +5,11 @@
 	import '../styles/generated/main.css';
 </script>
 
-<Header />
+<div class="min-h-screen flex flex-col">
+	<Header />
+	<main class="flex-1 flex">
+		<slot />
+	</main>
 
-<main class="bg-gray-200 text-gray-900">
-	<slot />
-</main>
-
-<Footer />
+	<Footer />
+</div>

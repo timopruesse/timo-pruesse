@@ -1,15 +1,8 @@
 <script context="module">
-	import { headerStore } from '$lib/header/store';
-
 	/**
 	 * @type {import('@sveltejs/kit').ErrorLoad}
 	 */
 	export function load({ error, status }) {
-		headerStore.set({
-			title: 'Whoops!',
-			subtitle: 'Something went wrong :('
-		});
-
 		return {
 			props: {
 				status,
