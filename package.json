@@ -29,7 +29,7 @@
 		"eslint-plugin-svelte3": "^3.2.1",
 		"postcss-cli": "^9.1.0",
 		"prettier": "~2.5.1",
-		"prettier-plugin-svelte": "^2.5.0",
+		"prettier-plugin-svelte": "^2.5.1",
 		"svelte": "^3.44.2",
 		"svelte-check": "^2.2.10",
 		"svelte-preprocess": "^4.10.0",
