@@ -11,7 +11,7 @@
 	<title>Timo Prüße | Imprint</title>
 </svelte:head>
 
-<section class="p-4 md:p-16 bg-gray-200 text-gray-900 w-full text-sm flex items-center">
+<section class="p-4 md:p-16 bg-gray-800 text-white w-full text-sm flex items-center">
 	<div class="max-w-2xl mt-16 mb-8">
 		<p class="italic">Angaben gemäß § 5 TMG</p>
 
@@ -25,9 +25,8 @@
 		<ul class="mb-2">
 			<li class="font-semibold">Kontakt:</li>
 			<li>
-				E-Mail: <a
-					href="mailto:hi@timo-pruesse.de"
-					class="text-gray-600 underline hover:text-gray-900">hi@timo-pruesse.de</a
+				E-Mail: <a href="mailto:hi@timo-pruesse.de" class="text-iceblue underline hover:text-white"
+					>hi@timo-pruesse.de</a
 				>
 			</li>
 		</ul>

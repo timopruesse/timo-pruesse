@@ -5,7 +5,9 @@
 <header
 	class="p-4 md:p-16 fixed text-2xl sm:text-3xl mix-blend-difference text-white flex items-center justify-between w-full"
 >
-	<a href="/">Timo Prüße</a>
+	<a href="/" class="flex gap-2 items-start"
+		><span class="text-toxicgreen text-xl sm:text-2xl">❯</span>Timo Prüße</a
+	>
 	<ul class="flex space-x-4">
 		<li>
 			<SocialLink name="GitHub" url="https://github.com/Chroma91">

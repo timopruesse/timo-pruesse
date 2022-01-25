@@ -11,6 +11,6 @@
 	<title>Timo Prüße | I love teaching machines how to solve problems</title>
 </svelte:head>
 
-<section class="flex-1 flex justify-center items-center pt-16 sm:pt-32 pb-0 sm:pb-16 bg-gray-800">
-	<Terminal class="h-full w-full sm:rounded-xl max-w-7xl sm:drop-shadow-xl" />
+<section class="flex-1 flex justify-center items-center pt-16 md:pt-32 pb-0 md:pb-16 bg-gray-800">
+	<Terminal class="h-full w-full md:rounded-xl max-w-7xl md:drop-shadow-xl md:mx-8" />
 </section>

@@ -1,1 +1,1 @@
-<p class="h-6"><slot /></p>
+<p class="min-h-[28px]"><slot /></p>

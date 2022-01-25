@@ -13,19 +13,22 @@
 	}>();
 
 	let animatedNode: HTMLDivElement;
-	let showCursor = false;
+	let showCursor = true;
 
 	function isTypingAnimation({ animationName }: AnimationEvent) {
 		return animationName.includes('typing');
 	}
 
-	const cursorWidth = 0.2;
 	let isDeleted = false;
 
-	$: inputWidth = text.length + cursorWidth;
 	$: isDeleting = ['delete', 'clear'].includes(action);
 
-	let width = inputWidth;
+	let text = '';
+	let width = 0;
+
+	function getWidth() {
+		return isDeleting ? 0 : text.length;
+	}
 
 	function onStart(e: AnimationEvent) {
 		if (!isTypingAnimation(e)) {
@@ -34,7 +37,7 @@
 
 		dispatch('start', { action });
 		showCursor = true;
-		width = isDeleting ? cursorWidth : inputWidth;
+		width = getWidth();
 		isDeleted = false;
 	}
 
@@ -45,7 +48,7 @@
 
 		dispatch('cancel', { action });
 		showCursor = false;
-		width = isDeleting ? cursorWidth : inputWidth;
+		width = getWidth();
 		isDeleted = isDeleting;
 	}
 
@@ -56,12 +59,11 @@
 
 		dispatch('end', { action });
 		showCursor = false;
-		width = isDeleting ? cursorWidth : inputWidth;
+		width = getWidth();
 		isDeleted = isDeleting;
 	}
 
 	let mutationObserver: MutationObserver;
-	let text = '';
 
 	onMount(() => {
 		animatedNode.addEventListener('animationstart', onStart);
@@ -88,17 +90,9 @@
 		animatedNode?.removeEventListener('animationend', onEnd);
 	});
 
-	let prevAction: InputAction;
-	let typingDelay = 0;
-
-	$: {
-		typingDelay = ['none', 'clear'].includes(prevAction) ? 0 : delay;
-		prevAction = action;
-	}
-
 	$: typingDuration = isDeleting ? duration * DELETE_MODIFIER : duration;
 	$: animationName = isDeleting ? 'typing-reverse' : 'typing';
-	$: animation = `animation: ${animationName} ${typingDuration}ms steps(${text.length}) ${typingDelay}ms`;
+	$: animation = `animation: ${animationName} ${typingDuration}ms steps(${text.length}) ${delay}ms`;
 </script>
 
 <div class="flex">
@@ -106,7 +100,7 @@
 		bind:this={animatedNode}
 		class:text-transparent={isDeleted}
 		class="whitespace-nowrap overflow-hidden font-mono"
-		style={`--input-width:${inputWidth}ch;width:${width}ch;${animation}`}
+		style={`--input-width:${text.length}ch;width:${width}ch;${animation}`}
 	>
 		<slot />
 	</div>
