@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import Line from './Line.svelte';
+	import Output from './Output.svelte';
 
 	let currentLine: HTMLInputElement;
 
@@ -13,14 +15,14 @@
 		$$props.class || ''
 	}`.trim()}
 >
-	<p>$ print 'hello world'</p>
-	<div class="flex">
-		<p class="pr-2">$</p>
+	<Line>whoami</Line>
+	<Output>timo</Output>
+	<Line>
 		<input
 			bind:this={currentLine}
 			title="terminal input"
-			class="current-line bg-transparent resize-none outline-none w-full overflow-hidden"
+			class="current-line flex-1 bg-transparent resize-none outline-none w-full overflow-hidden"
 			spellcheck="false"
 		/>
-	</div>
+	</Line>
 </div>

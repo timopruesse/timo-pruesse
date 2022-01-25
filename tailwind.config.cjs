@@ -1,7 +1,5 @@
 module.exports = {
-	mode: 'jit',
-	purge: ['./src/**/*.svelte'],
-	darkMode: false, // or 'media' or 'class'
+	content: ['./src/**/*.svelte'],
 	theme: {
 		extend: {
 			colors: {
@@ -12,12 +10,12 @@ module.exports = {
 				},
 				iceblue: {
 					DEFAULT: '#d6deeb'
+				},
+				toxicgreen: {
+					DEFAULT: '#5fd700'
 				}
 			}
 		}
-	},
-	variants: {
-		extend: {}
 	},
 	plugins: []
 };
