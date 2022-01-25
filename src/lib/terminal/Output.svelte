@@ -1,1 +1,1 @@
-<p><slot /></p>
+<p class="h-6"><slot /></p>
