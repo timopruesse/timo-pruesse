@@ -1,14 +1,9 @@
 <script lang="ts">
 	import type { InputSequenceItem } from '$lib/animatedInput/types';
 	import AnimatedCommand from './AnimatedCommand.svelte';
-
 	import Line from './Line.svelte';
 
 	let currentLine: HTMLInputElement;
-
-	// TODO: Focus after last animation ended :)
-	// currentLine.focus();
-
 	interface TerminalCommand {
 		input: InputSequenceItem[];
 		output: string[];
@@ -45,6 +40,12 @@
 	];
 
 	let printedCommands = 0;
+
+	$: if (currentLine) {
+		currentLine.focus();
+	}
+
+	let currentInputValue = '';
 </script>
 
 <div
@@ -65,12 +66,12 @@
 		<Line class="relative">
 			<input
 				bind:this={currentLine}
+				bind:value={currentInputValue}
 				title="terminal input"
 				class="flex-1 bg-transparent resize-none outline-none overflow-hidden caret-transparent"
 				spellcheck="false"
 			/>
-			<!-- TODO: Align cursor on the right side of the text... -->
-			<span class="absolute left-6">‗</span>
+			<span class="absolute" style={`left:calc(20px + ${currentInputValue.length}ch)`}>‗</span>
 		</Line>
 	{/if}
 </div>
