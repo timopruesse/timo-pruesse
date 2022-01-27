@@ -18,7 +18,7 @@
 			output: outputs.aboutme
 		},
 		{
-			input: [{ text: 'timo --help', duration: 700, delay: 1000 }],
+			input: [{ text: 'timo --help', duration: 700, delay: 800 }],
 			output: outputs.help
 		}
 	];
