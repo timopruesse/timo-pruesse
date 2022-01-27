@@ -12,5 +12,7 @@
 </svelte:head>
 
 <section class="flex-1 flex justify-center items-center pt-16 md:pt-32 pb-0 md:pb-16 bg-gray-800">
-	<Terminal class="h-full w-full md:rounded-xl max-w-7xl md:drop-shadow-xl md:mx-8" />
+	<Terminal
+		class="h-full w-full md:rounded-xl max-w-[100vw] md:max-w-7xl md:drop-shadow-xl md:mx-8"
+	/>
 </section>

@@ -25,7 +25,7 @@
 
 <div
 	bind:this={terminal}
-	class={`text-iceblue bg-nightowl p-4 sm:p-8 font-mono text-base sm:text-xl max-h-[50vh] overflow-y-auto ${
+	class={`text-iceblue bg-nightowl p-4 sm:p-8 font-mono text-sm sm:text-base md:text-xl max-h-[80vh] md:max-h-[67vh] overflow-y-auto overflow-x-auto md:overflow-x-hidden ${
 		$$props.class || ''
 	}`.trim()}
 	on:click={() => currentLine?.focus()}
