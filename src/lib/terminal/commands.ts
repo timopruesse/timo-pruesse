@@ -64,6 +64,7 @@ export const outputs: Record<string, TerminalCommand['output']> = {
 		'  Daily Drivers:      Experiments:',
 		'    - AWS               - Firebase',
 		'    - DigitalOcean',
+		'',
 		'AI/Data Science:',
 		'  Experiments:',
 		'    - TensorFlow'
