@@ -79,7 +79,9 @@ export const outputs: Record<string, TerminalCommand['output']> = {
 
 const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
 	whoami: outputs.whoami,
+	'cat aboutme': outputs.aboutme,
 	'cat ~/aboutme': outputs.aboutme,
+	ls: outputs.lsHome,
 	'ls ~': outputs.lsHome,
 	timo: outputs.help,
 	'timo --help': outputs.help,
