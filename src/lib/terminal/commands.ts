@@ -30,6 +30,7 @@ const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
 	whoami: outputs.whoami,
 	'cat ~/aboutme': outputs.aboutme,
 	'ls ~': outputs.lsHome,
+	timo: outputs.help,
 	'timo --help': outputs.help,
 	'timo --stack': outputs.stack,
 	'timo --system': outputs.system,
@@ -40,5 +41,5 @@ const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
 export function getCommandOutput(commandName: string): TerminalCommand['output'] {
 	const output = commands[commandName];
 
-	return output || [`${commandName}: Command not found.`];
+	return output || [`zsh: command not found: ${commandName}`];
 }

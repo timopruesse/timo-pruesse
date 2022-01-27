@@ -10,22 +10,7 @@
 		InputSequenceItem
 	} from './types';
 
-	let node: HTMLDivElement;
-	let observer: IntersectionObserver;
-	let inputAction: InputAction = 'none';
-
-	onMount(() => {
-		observer = new IntersectionObserver(
-			(entries) => {
-				inputAction = entries[0].isIntersecting ? 'type' : 'clear';
-			},
-			{
-				rootMargin: `-${node.clientHeight * 1.5}px 0px -${node.clientHeight}px 0px`,
-				threshold: 1.0
-			}
-		);
-		observer.observe(node);
-	});
+	let inputAction: InputAction = 'type';
 
 	const dispatch = createEventDispatcher<{
 		start: StartPayload;
@@ -108,26 +93,23 @@
 	}
 
 	onDestroy(() => {
-		observer?.disconnect();
 		clearTimeout(inputTimeout);
 	});
 
 	$: currentSearchString = sequence[currentIndex];
 </script>
 
-<div bind:this={node}>
-	<div class="flex-1">
-		{#if currentSearchString}
-			<AnimatedText
-				action={inputAction}
-				duration={currentSearchString.duration}
-				delay={currentSearchString.delay}
-				on:start={onStartCurrent}
-				on:end={onEndCurrent}
-				on:cancel={onCancelCurrent}
-			>
-				{currentSearchString.text}
-			</AnimatedText>
-		{/if}
-	</div>
+<div class="flex-1">
+	{#if currentSearchString}
+		<AnimatedText
+			action={inputAction}
+			duration={currentSearchString.duration}
+			delay={currentSearchString.delay}
+			on:start={onStartCurrent}
+			on:end={onEndCurrent}
+			on:cancel={onCancelCurrent}
+		>
+			{currentSearchString.text}
+		</AnimatedText>
+	{/if}
 </div>

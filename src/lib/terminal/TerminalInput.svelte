@@ -7,12 +7,19 @@
 	export let value = '';
 
 	function executeCommand(commandName: string) {
+		value = '';
+
 		if (commandName === 'clear') {
 			// TODO: Clear everything...
 			return;
 		}
 
-		commandStore.update((prev) => [...prev, getCommandOutput(commandName)]);
+		commandStore.update((prev) => [
+			...prev,
+			{ input: commandName, output: getCommandOutput(commandName) }
+		]);
+
+		// TODO: Scroll to bottom...
 	}
 
 	let isFocused = false;
