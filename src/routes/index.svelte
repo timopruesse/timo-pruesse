@@ -1,30 +1,18 @@
 <script context="module">
 	import { browser } from '$app/env';
-	import { headerStore } from '$lib/header/store';
-	import TechGrid from '$lib/technologies/TechGrid.svelte';
+	import Terminal from '$lib/terminal/Terminal.svelte';
 
 	export const router = browser;
 	export const hydrate = true;
 	export const prerender = true;
-
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
-	export async function load() {
-		headerStore.set({
-			title: 'Hi, my name is Timo',
-			icon: '🙋‍♂️',
-			subtitle: '« I love teaching machines how to solve problems. »'
-		});
-
-		return {};
-	}
 </script>
 
 <svelte:head>
-	<title>Timo Prüße | Fullstack Dev</title>
+	<title>Timo Prüße | I love teaching machines how to solve problems</title>
 </svelte:head>
 
-<section class="px-4 sm:px-10">
-	<TechGrid />
+<section class="flex-1 flex justify-center items-center pt-16 md:pt-32 pb-0 md:pb-16 bg-gray-800">
+	<Terminal
+		class="h-full w-full md:rounded-xl max-w-[100vw] md:max-w-7xl md:drop-shadow-xl md:mx-8"
+	/>
 </section>
