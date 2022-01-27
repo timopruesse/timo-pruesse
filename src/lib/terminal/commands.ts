@@ -10,6 +10,11 @@ export const outputs: Record<string, TerminalCommand['output']> = {
 	whoami: ['timo_pruesse'],
 	aboutme: ['Hi, my name is Timo 🙋‍♂️', 'I love teaching machines how to solve problems.', ''],
 	lsHome: ['aboutme'],
+	lsProject: [
+		'build         package-lock.json   src               tailwind.config.cjs',
+		'node_modules  postcss.config.cjs  static            tsconfig.json',
+		'package.json  README.md           svelte.config.js'
+	],
 	help: [
 		'',
 		`Timo (${version})`,
@@ -79,9 +84,8 @@ export const outputs: Record<string, TerminalCommand['output']> = {
 
 const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
 	whoami: outputs.whoami,
-	'cat aboutme': outputs.aboutme,
 	'cat ~/aboutme': outputs.aboutme,
-	ls: outputs.lsHome,
+	ls: outputs.lsProject,
 	'ls ~': outputs.lsHome,
 	timo: outputs.help,
 	'timo --help': outputs.help,
