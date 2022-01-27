@@ -13,6 +13,10 @@ module.exports = {
 				},
 				toxicgreen: {
 					DEFAULT: '#5fd700'
+				},
+				turquoise: {
+					light: '#83cee6',
+					DEFAULT: '#32bfca'
 				}
 			}
 		}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { commandStore } from '$lib/stores/commandStore';
 	import { getCommandOutput } from './commands';
+	import CurrentPath from './CurrentPath.svelte';
 	import Line from './Line.svelte';
 
 	export let instance: HTMLInputElement | undefined = undefined;
@@ -19,6 +20,7 @@
 	let caretPosition = 0; // TODO: Use caret position to show correct position after using arrow keys
 </script>
 
+<CurrentPath />
 <Line class="relative">
 	<input
 		bind:this={instance}
