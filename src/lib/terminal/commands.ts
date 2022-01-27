@@ -14,16 +14,16 @@ export const outputs: Record<string, TerminalCommand['output']> = {
 		'',
 		'  timo --help             print this help page',
 		'  timo --stack            print tech stack',
-		'  timo --system           print system info',
+		'  timo --system           print system information',
 		'  timo --version          print version',
 		'',
-		'  timo send:email         send an email',
+		'  timo get:contact        gets contact information',
 		''
 	],
 	version: [`${version} (03.08.1991)`],
 	stack: ['TBA'],
 	system: ['TBA'],
-	sendEmail: ['hi@timo-pruesse.de'] // TODO: Check E-Mail redirect
+	getContact: ['contact: hi@timo-pruesse.de'] // TODO: Check E-Mail redirect
 };
 
 const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
@@ -35,7 +35,7 @@ const commands: Record<string, typeof outputs[keyof typeof outputs]> = {
 	'timo --stack': outputs.stack,
 	'timo --system': outputs.system,
 	'timo --version': outputs.version,
-	'timo send:email': outputs.sendEmail
+	'timo get:contact': outputs.getContact
 };
 
 export function getCommandOutput(commandName: string): TerminalCommand['output'] {

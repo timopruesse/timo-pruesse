@@ -30,6 +30,14 @@
 		on:blur={() => (isFocused = false)}
 		on:keypress={() => (caretPosition = instance?.selectionEnd ?? 0)}
 		on:keydown={(e) => {
+			if (e.key === 'ArrowUp') {
+				const lastCommand = $commandStore[$commandStore.length - 1];
+				if (lastCommand) {
+					value = lastCommand.input;
+				}
+				return;
+			}
+
 			if (e.key !== 'Enter') {
 				return;
 			}
