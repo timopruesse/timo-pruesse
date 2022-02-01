@@ -8,10 +8,21 @@
 </script>
 
 <script lang="ts">
-	import init, { add } from 'timo_pruesse_wasm_terminal';
+	import { onMount } from 'svelte';
+	import TerminalWorker from '$lib/workers/terminal?worker';
 
-	init().then(() => {
-		console.log(add(5, 7));
+	onMount(() => {
+		try {
+			const worker = new TerminalWorker();
+
+			worker.postMessage({ number1: 10, number2: 15 });
+
+			worker.onmessage = (event: MessageEvent) => {
+				console.log('result', event.data);
+			};
+		} catch (e) {
+			console.error(e);
+		}
 	});
 </script>
 

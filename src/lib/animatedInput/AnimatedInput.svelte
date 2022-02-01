@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+	import { createEventDispatcher, onDestroy } from 'svelte';
 	import AnimatedText from './AnimatedText.svelte';
 	import type {
 		InputAction,
