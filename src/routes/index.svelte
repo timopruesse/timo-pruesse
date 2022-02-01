@@ -9,20 +9,13 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import TerminalWorker from '$lib/workers/terminal?worker';
+	import { TerminalCommandType } from '$lib/workers/types';
+	import { runCommand } from '$lib/utils/terminal';
 
-	onMount(() => {
-		try {
-			const worker = new TerminalWorker();
+	onMount(async () => {
+		const result = await runCommand(TerminalCommandType.Add, [20, 5]);
 
-			worker.postMessage({ number1: 10, number2: 15 });
-
-			worker.onmessage = (event: MessageEvent) => {
-				console.log('result', event.data);
-			};
-		} catch (e) {
-			console.error(e);
-		}
+		console.log(result);
 	});
 </script>
 
