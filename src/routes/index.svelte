@@ -7,6 +7,14 @@
 	export const prerender = true;
 </script>
 
+<script lang="ts">
+	import init, { add } from 'timo_pruesse_wasm_terminal';
+
+	init().then(() => {
+		console.log(add(5, 7));
+	});
+</script>
+
 <svelte:head>
 	<title>Timo Prüße | I love teaching machines how to solve problems</title>
 </svelte:head>
