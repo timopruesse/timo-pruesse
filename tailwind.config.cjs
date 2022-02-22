@@ -18,6 +18,9 @@ module.exports = {
 					light: '#83cee6',
 					DEFAULT: '#32bfca'
 				}
+			},
+			gridTemplateColumns: {
+				'auto-fit': 'repeat(auto-fit, minmax(0, 1fr))'
 			}
 		}
 	},

@@ -6,7 +6,5 @@
 
 {#each $commandStore as { input, output }}
 	<Line>{input}</Line>
-	{#each output as line}
-		<Output>{line}</Output>
-	{/each}
+	<Output>{output}</Output>
 {/each}

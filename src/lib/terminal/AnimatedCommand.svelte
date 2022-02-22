@@ -6,7 +6,7 @@
 	import Output from './Output.svelte';
 
 	export let input: InputSequenceItem[];
-	export let output: string[];
+	export let output: string;
 	export let animate = false;
 
 	let printOutput = false;
@@ -24,8 +24,6 @@
 		}}
 	/>
 	{#if printOutput}
-		{#each output as line}
-			<Output>{line}</Output>
-		{/each}
+		<Output>{output}</Output>
 	{/if}
 {/if}

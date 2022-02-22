@@ -21,11 +21,6 @@
 	<title>Timo Prüße | {status}</title>
 </svelte:head>
 
-<div class="px-8 py-2 text-red-900 bg-red-50">
-	<p class="mb-4">
-		<a class="text-lg font-semibold hover:text-black" href="/"
-			><span class="text-2xl">←</span> <span class="hover:underline">Home</span>
-		</a>
-	</p>
+<div class="px-8 pb-4 pt-32 text-red-900 bg-red-50">
 	<p class="text-2xl py-4"><span class="font-semibold">{status}</span> | {message}</p>
 </div>

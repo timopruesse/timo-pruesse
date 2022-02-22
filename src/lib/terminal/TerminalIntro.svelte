@@ -1,27 +1,31 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	import AnimatedCommand from './AnimatedCommand.svelte';
-	import { outputs } from './commands';
 	import type { TerminalCommand } from './types';
+	import { runCommand } from '$lib/utils/terminal';
 
-	const lines: TerminalCommand[] = [
-		{
-			input: [{ text: 'whoami', duration: 500, delay: 500 }],
-			output: outputs.whoami
-		},
-		{
-			input: [
-				{ text: 'sudo rm /*', duration: 700, delay: 300 },
-				{ text: 'cat ~/aboutme', duration: 200, delay: 400 }
-			],
-			output: outputs.aboutme
-		},
-		{
-			input: [{ text: 'timo --help', duration: 700, delay: 800 }],
-			output: outputs.help
-		}
-	];
+	let lines: TerminalCommand[] = [];
+
+	onMount(async () => {
+		lines = [
+			{
+				input: [{ text: 'whoami', duration: 500, delay: 500 }],
+				output: await runCommand('whoami')
+			},
+			{
+				input: [
+					{ text: 'sudo rm /*', duration: 700, delay: 300 },
+					{ text: 'cat ~/aboutme', duration: 200, delay: 400 }
+				],
+				output: await runCommand('cat ~/aboutme')
+			},
+			{
+				input: [{ text: 'timo --help', duration: 700, delay: 800 }],
+				output: await runCommand('timo --help')
+			}
+		];
+	});
 
 	const dispatch = createEventDispatcher<{ end: never }>();
 	let printedCommands = 0;

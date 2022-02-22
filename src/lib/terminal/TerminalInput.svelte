@@ -1,23 +1,35 @@
 <script lang="ts">
 	import { commandStore } from '$lib/stores/commandStore';
-	import { getCommandOutput } from './commands';
 	import CurrentPath from './CurrentPath.svelte';
 	import Line from './Line.svelte';
+	import { runCommand } from '$lib/utils/terminal';
+	import type { TerminalError } from '$lib/workers/types';
 
 	export let instance: HTMLInputElement | undefined = undefined;
 	export let value = '';
 
-	function executeCommand(commandName: string) {
-		value = '';
+	let caretPosition = 0;
 
-		commandStore.update((prev) => [
-			...prev,
-			{ input: commandName, output: getCommandOutput(commandName) }
-		]);
+	async function executeCommand(command: string) {
+		value = '';
+		caretPosition = 0;
+
+		try {
+			const output = await runCommand(command);
+			commandStore.update((prev) => [...prev, { input: command, output }]);
+		} catch (error) {
+			const terminalError = error as TerminalError;
+
+			commandStore.update((prev) => [...prev, { input: command, output: terminalError.message }]);
+			console.error(terminalError);
+		}
 	}
 
 	let isFocused = false;
-	let caretPosition = 0; // TODO: Use caret position to show correct position after using arrow keys
+
+	function setCaretPosition() {
+		caretPosition = instance?.selectionEnd ?? 0;
+	}
 </script>
 
 <CurrentPath />
@@ -30,15 +42,9 @@
 		spellcheck="false"
 		on:focus={() => (isFocused = true)}
 		on:blur={() => (isFocused = false)}
-		on:keypress={() => (caretPosition = instance?.selectionEnd ?? 0)}
+		on:keyup={setCaretPosition}
 		on:keydown={(e) => {
-			if (e.key === 'ArrowUp') {
-				const lastCommand = $commandStore[$commandStore.length - 1];
-				if (lastCommand) {
-					value = lastCommand.input;
-				}
-				return;
-			}
+			setCaretPosition();
 
 			if (e.key !== 'Enter') {
 				return;
@@ -51,7 +57,9 @@
 	{#if isFocused}
 		<span
 			class="absolute left-0"
-			style={`transform:translate3d(calc(20px + ${value.length}ch),0,0)`}>‗</span
+			style={`transform:translate3d(calc(20px + ${
+				value.length - (value.length - caretPosition)
+			}ch),0,0)`}>‗</span
 		>
 	{/if}
 </Line>
