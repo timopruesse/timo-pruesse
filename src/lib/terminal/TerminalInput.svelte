@@ -8,8 +8,11 @@
 	export let instance: HTMLInputElement | undefined = undefined;
 	export let value = '';
 
+	let caretPosition = 0;
+
 	async function executeCommand(command: string) {
 		value = '';
+		caretPosition = 0;
 
 		try {
 			const output = await runCommand(command);
@@ -23,7 +26,10 @@
 	}
 
 	let isFocused = false;
-	let caretPosition = 0; // TODO: Use caret position to show correct position after using arrow keys
+
+	function setCaretPosition() {
+		caretPosition = instance?.selectionEnd ?? 0;
+	}
 </script>
 
 <CurrentPath />
@@ -36,21 +42,11 @@
 		spellcheck="false"
 		on:focus={() => (isFocused = true)}
 		on:blur={() => (isFocused = false)}
-		on:keypress={() => (caretPosition = instance?.selectionEnd ?? 0)}
+		on:keyup={setCaretPosition}
 		on:keydown={(e) => {
-			if (e.key === 'ArrowUp') {
-				const lastCommand = $commandStore[$commandStore.length - 1];
-				if (lastCommand) {
-					value = lastCommand.input;
-				}
-				return;
-			}
+			setCaretPosition();
 
 			if (e.key !== 'Enter') {
-				// TODO: Remove this when caretPosition is used
-				if (e.key.includes('Arrow')) {
-					e.preventDefault();
-				}
 				return;
 			}
 
@@ -61,7 +57,9 @@
 	{#if isFocused}
 		<span
 			class="absolute left-0"
-			style={`transform:translate3d(calc(20px + ${value.length}ch),0,0)`}>‗</span
+			style={`transform:translate3d(calc(20px + ${
+				value.length - (value.length - caretPosition)
+			}ch),0,0)`}>‗</span
 		>
 	{/if}
 </Line>
