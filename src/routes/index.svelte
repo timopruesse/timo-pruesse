@@ -9,11 +9,10 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { TerminalCommandType } from '$lib/workers/types';
 	import { runCommand } from '$lib/utils/terminal';
 
 	onMount(async () => {
-		const result = await runCommand(TerminalCommandType.Add, [20, 5]);
+		const result = await runCommand('timo --system');
 
 		console.log(result);
 	});

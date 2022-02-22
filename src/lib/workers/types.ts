@@ -1,19 +1,8 @@
-export enum TerminalCommandType {
-	Add = 'add'
-}
-
 export interface TerminalMessage {
-	command: TerminalCommandType;
-	args?: Array<string | number>;
-}
-
-export enum TerminalCommandErrorType {
-	InvalidCommand = 'invalid_command',
-	ExecutionError = 'execution_error'
+	command: string;
 }
 
 interface TerminalError {
-	type: TerminalCommandErrorType;
 	message: string;
 }
 
