@@ -6,5 +6,7 @@
 
 <span class="hidden" contenteditable bind:textContent={value}><slot /></span>
 {#if value}
-	<div class="terminal-output min-h-[28px]">{@html value}</div>
+	<div {...$$props} class={`terminal-output min-h-[28px] ${$$props.class || ''}`.trim()}>
+		{@html value}
+	</div>
 {/if}
