@@ -1,19 +1,25 @@
 <script lang="ts">
 	import { commandStore } from '$lib/stores/commandStore';
-	import { getCommandOutput } from './commands';
 	import CurrentPath from './CurrentPath.svelte';
 	import Line from './Line.svelte';
+	import { runCommand } from '$lib/utils/terminal';
+	import type { TerminalError } from '$lib/workers/types';
 
 	export let instance: HTMLInputElement | undefined = undefined;
 	export let value = '';
 
-	function executeCommand(commandName: string) {
+	async function executeCommand(command: string) {
 		value = '';
 
-		commandStore.update((prev) => [
-			...prev,
-			{ input: commandName, output: getCommandOutput(commandName) }
-		]);
+		try {
+			const output = await runCommand(command);
+			commandStore.update((prev) => [...prev, { input: command, output }]);
+		} catch (error) {
+			const terminalError = error as TerminalError;
+
+			commandStore.update((prev) => [...prev, { input: command, output: terminalError.message }]);
+			console.error(terminalError);
+		}
 	}
 
 	let isFocused = false;

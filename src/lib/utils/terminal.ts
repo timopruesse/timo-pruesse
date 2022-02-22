@@ -1,9 +1,9 @@
 import TerminalWorker from '$lib/workers/terminal?worker';
-import type { TerminalMessage } from '$lib/workers/types';
+import type { TerminalMessage, TerminalResultMessage } from '$lib/workers/types';
 
 let worker: Worker;
 
-export async function runCommand<T>(command: string): Promise<T> {
+export async function runCommand(command: string): Promise<string> {
 	if (!worker) {
 		worker = new TerminalWorker();
 	}
@@ -11,7 +11,7 @@ export async function runCommand<T>(command: string): Promise<T> {
 	return new Promise((resolve, reject) => {
 		worker.postMessage({ command } as TerminalMessage);
 
-		worker.onmessage = (event: MessageEvent) => {
+		worker.onmessage = (event: MessageEvent<TerminalResultMessage>) => {
 			if (event.data.error) {
 				reject(event.data.error);
 			}

@@ -7,17 +7,6 @@
 	export const prerender = true;
 </script>
 
-<script lang="ts">
-	import { onMount } from 'svelte';
-	import { runCommand } from '$lib/utils/terminal';
-
-	onMount(async () => {
-		const result = await runCommand('timo --system');
-
-		console.log(result);
-	});
-</script>
-
 <svelte:head>
 	<title>Timo Prüße | I love teaching machines how to solve problems</title>
 </svelte:head>
