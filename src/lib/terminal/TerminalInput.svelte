@@ -47,6 +47,10 @@
 			}
 
 			if (e.key !== 'Enter') {
+				// TODO: Remove this when caretPosition is used
+				if (e.key.includes('Arrow')) {
+					e.preventDefault();
+				}
 				return;
 			}
 

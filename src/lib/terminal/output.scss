@@ -1,0 +1,53 @@
+.terminal-output {
+	a:hover {
+		@apply underline;
+	}
+
+	.file-list {
+		@screen md {
+			grid-template-rows: repeat(4, minmax(0, 1fr));
+		}
+
+		@screen lg {
+			grid-template-rows: repeat(3, minmax(0, 1fr));
+		}
+
+		@screen xl {
+			grid-template-rows: repeat(2, minmax(0, 1fr));
+		}
+
+		@apply grid grid-flow-col grid-cols-auto-fit grid-rows-6 gap-x-4;
+
+		span {
+			@apply whitespace-nowrap;
+
+			&.highlight-file {
+				@apply text-turquoise;
+			}
+		}
+	}
+
+	.info-box {
+		@apply flex-1 border border-iceblue/10 border-separate border-dashed flex pt-1 px-2 mb-2 text-base;
+
+		div {
+			@apply flex-1 flex flex-col;
+		}
+	}
+
+	.info-table {
+		@screen md {
+			width: 50%;
+		}
+
+		@screen lg {
+			width: 33.333333%;
+		}
+
+		@apply w-full;
+
+		th {
+			@apply text-left border-b border-iceblue/30;
+		}
+	}
+}
