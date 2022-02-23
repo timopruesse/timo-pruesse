@@ -40,6 +40,7 @@
 		title="terminal input"
 		class="flex-1 bg-transparent resize-none outline-none overflow-hidden caret-transparent"
 		spellcheck="false"
+		autocorrect="off"
 		on:focus={() => (isFocused = true)}
 		on:blur={() => (isFocused = false)}
 		on:keyup={setCaretPosition}
