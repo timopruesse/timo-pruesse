@@ -33,7 +33,7 @@
 </script>
 
 <Output class="mb-1 md:mb-2 text-xs md:text-sm italic text-toxicgreen/75">
-	timo_wasm - powered by web workers and web assembly
+	timo_wasm - powered by web assembly and web workers
 </Output>
 
 {#each lines as { input, output }, i}

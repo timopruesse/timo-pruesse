@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
-	import { ActionPayload, DELETE_MODIFIER, InputAction } from './types';
+	import { type ActionPayload, DELETE_MODIFIER, type InputAction } from './types';
 
 	export let action: InputAction = 'none';
 	export let duration: number;

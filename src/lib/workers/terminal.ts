@@ -21,7 +21,7 @@ worker.addEventListener('message', async (event: MessageEvent<TerminalMessage>) 
 		const errorMessage = error instanceof Error ? error.message : 'Unknown error';
 
 		worker.postMessage({
-			result: null,
+			result: '',
 			error: {
 				message: `timo_wasm: ${command} failed: ${errorMessage}`
 			}
