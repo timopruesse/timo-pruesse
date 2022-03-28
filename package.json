@@ -21,7 +21,7 @@
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.14.0",
-		"@typescript-eslint/parser": "^5.14.0",
+		"@typescript-eslint/parser": "^5.16.0",
 		"autoprefixer": "^10.4.4",
 		"concurrently": "^7.0.0",
 		"eslint": "^8.12.0",
