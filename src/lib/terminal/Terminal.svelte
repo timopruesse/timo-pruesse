@@ -11,16 +11,21 @@
 
 	let isInputVisible = false;
 
+	async function scrollDown() {
+		await tick();
+		terminal?.scroll({ behavior: 'smooth', top: terminal.scrollHeight });
+	}
+
+	commandStore.subscribe(scrollDown);
+
+	function handleIntroEnd() {
+		isInputVisible = true;
+		scrollDown();
+	}
+
 	$: if (currentLine) {
 		currentLine.focus();
 	}
-
-	// TODO: Style scrollbar...
-
-	commandStore.subscribe(async () => {
-		await tick();
-		terminal?.scroll({ behavior: 'smooth', top: terminal.scrollHeight });
-	});
 </script>
 
 <div
@@ -31,7 +36,7 @@
 	}`.trim()}
 	on:click={() => currentLine?.focus()}
 >
-	<TerminalIntro on:end={() => (isInputVisible = true)} />
+	<TerminalIntro on:end={handleIntroEnd} />
 	<CommandResults />
 
 	{#if isInputVisible}
