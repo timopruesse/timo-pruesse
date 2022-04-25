@@ -2,7 +2,7 @@
 	"name": "timo-pruesse",
 	"version": "2.1.0",
 	"engines": {
-		"node": ">=17.4.0"
+		"node": "17"
 	},
 	"scripts": {
 		"dev:only": "svelte-kit dev",
