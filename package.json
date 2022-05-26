@@ -1,9 +1,6 @@
 {
 	"name": "timo-pruesse",
 	"version": "2.1.0",
-	"engines": {
-		"node": "17"
-	},
 	"scripts": {
 		"dev:only": "svelte-kit dev",
 		"build:only": "svelte-kit build",
@@ -37,11 +34,11 @@
 		"svelte-preprocess": "^4.10.6",
 		"tailwindcss": "^3.0.24",
 		"tslib": "^2.4.0",
-		"typescript": "^4.6.3",
+		"typescript": "^4.7.0",
 		"vite-plugin-wasm-pack": "^0.1.9"
 	},
 	"type": "module",
 	"dependencies": {
-		"timo_pruesse_wasm_terminal": "^1.3.3"
+		"timo_pruesse_wasm_terminal": "^1.3.7"
 	}
 }
